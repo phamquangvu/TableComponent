@@ -15,6 +15,7 @@ import {
   MainInput,
   SupText,
 } from "./styled";
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { login } from "../../auth/auth";
 
@@ -31,6 +32,8 @@ const LoginPage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     setError("");
@@ -38,6 +41,7 @@ const LoginPage = () => {
     try {
       const res = await login(data);
       console.log(res);
+      navigate("/list");
     } catch (error: any) {
       setError(error.message);
     } finally {
@@ -99,7 +103,6 @@ const LoginPage = () => {
             <Button type="submit" variant="contained">
               {loading ? "dang login" : "login"}
             </Button>
-            {/* nav("/"); */}
           </BotMain>
         </form>
       </MainBody>
