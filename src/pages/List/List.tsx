@@ -136,24 +136,24 @@ const List = () => {
     { text: "Patient List", icon: <PeopleIcon /> },
     { text: "Communication Threads", icon: <ForumIcon /> },
   ];
+
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(!open);
   };
 
   return (
-    <BoxContainer>
+    <BoxContainer
+      sx={{
+        width: "100%",
+        overflowX: "hidden",
+      }}
+    >
       <Box>
         <Drawer
           variant="permanent"
           sx={{
             width: open ? 240 : 60,
-            flexShrink: 0,
-            [`& .MuiDrawer-paper`]: {
-              width: open ? 240 : 60,
-              boxSizing: "border-box",
-              transition: "width 0.3s",
-            },
           }}
         >
           <Box

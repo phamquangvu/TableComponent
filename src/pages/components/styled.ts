@@ -4,8 +4,8 @@ export const BoxContainer = styled(Box)({
   display: "flex",
   flexDirection: "column",
   padding: "16px",
-  width: "100%",
-  backgroundColor: "#f9f9f9",
+  width: "85%",
+  marginLeft: "24px",
 });
 
 export const TopTable = styled(Box)({
@@ -37,16 +37,27 @@ export const BoxPage = styled(Box)({
   "& .MuiDataGrid-root": {
     height: "400px",
     width: "100%",
-    border: `1px solid #ddd`,
+    border: `1px solid `,
     borderRadius: "8px",
   },
-  "& .MuiDataGrid-columnHeaders": {
-    backgroundColor: "#f5f5f5",
-  },
+
   "& .MuiDataGrid-cell": {
-    borderBottom: `1px solid #ddd`,
+    borderBottom: `1px solid `,
   },
   "& .MuiDataGrid-footer": {
-    borderTop: `1px solid #ddd`,
+    borderTop: `1px solid `,
   },
+});
+
+export const BoxHeader = styled(Box)({
+  display: "flex",
+  justifyContent: "space-between",
+
+  marginBottom: "16px",
+});
+
+export const BoxSelect = styled(Box)({
+  display: "flex",
+  flexDirection: "row",
+  gap: "12px",
 });

@@ -4,22 +4,55 @@ import { DataGrid } from "@mui/x-data-grid";
 import {
   BoxButton,
   BoxContainer,
+  BoxHeader,
   BoxInput,
   BoxMain,
   BoxPage,
+  BoxSelect,
   TopTable,
 } from "./styled";
 
 interface TableProps {
-  rows: any;
-  columns: any;
+  rows: any[];
+  columns: any[];
 }
 
 const TableComponent = ({ columns, rows }: TableProps) => {
+  const navbarMain = [
+    { name: "Facility Management" },
+    { name: "User Management" },
+    { name: "System Configuration" },
+  ];
+
   return (
-    // phan tong bao boc
     <BoxContainer>
-      {/* phan facility list+ button create */}
+      {/* Navbar Top */}
+      <BoxHeader>
+        <BoxSelect>
+          {navbarMain.map((item) => (
+            <Typography key={item.name} variant="body1" fontWeight="bold">
+              {item.name}
+            </Typography>
+          ))}
+        </BoxSelect>
+        <div>
+          <img
+            src=""
+            alt="Profile"
+            style={{ width: "40px", borderRadius: "50%" }}
+          />
+        </div>
+      </BoxHeader>
+
+      {/* Facility Management Header */}
+      <div style={{ marginBottom: "16px" }}>
+        <Typography variant="h5">Facility Management</Typography>
+        <Typography variant="body2">
+          Manage your Facilities and their account permissions here.
+        </Typography>
+      </div>
+
+      {/* Facility List + Create Button */}
       <TopTable>
         <Typography fontSize="20px" fontWeight="bold">
           Facility list (25 facilities)
@@ -35,9 +68,9 @@ const TableComponent = ({ columns, rows }: TableProps) => {
         </Button>
       </TopTable>
 
-      {/* phan than giua */}
+      {/* Main Content */}
       <BoxMain>
-        {/* phan cac o input  */}
+        {/* Input Fields */}
         <BoxInput>
           <TextField label="Facility Name" variant="outlined" size="small" />
           <TextField
@@ -72,11 +105,11 @@ const TableComponent = ({ columns, rows }: TableProps) => {
           >
             <MenuItem value="All">All</MenuItem>
             <MenuItem value="Point-Click-Care">Point-Click-Care</MenuItem>
-            <MenuItem value="Gehrmed">Gehrmed</MenuItem>
+            <MenuItem value="Gehimed">Gehimed</MenuItem>
           </TextField>
         </BoxInput>
 
-        {/* phan nut reset search */}
+        {/* Buttons */}
         <BoxButton>
           <Button
             variant="contained"
@@ -97,7 +130,7 @@ const TableComponent = ({ columns, rows }: TableProps) => {
         </BoxButton>
       </BoxMain>
 
-      {/* phan page */}
+      {/* Data Grid */}
       <BoxPage>
         <DataGrid
           rows={rows}
